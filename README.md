@@ -1,5 +1,5 @@
 # Multimodal Forecasting Framework for Predicting Earnings Surprises
-**Grade:** 90.5% (Distinction)  
+**Grade:** 90.5 (Distinction)  
 **Degree:** MSc Data Science & Artificial Intelligence – Queen Mary University of London  
 **Author:** Stephanie Keddy  
 **Supervisor:** Dr. William Marsh  
@@ -59,6 +59,8 @@ The pipeline combines:
 | EBIT | Language-only | **−24.0%** | 56.0% | 0.0000 |
 | EBIT | Hybrid | **−19.1%** | **62.9%** | 0.0000 |
 | Net Income | Hybrid | −3.17% | 66.0% | 0.0000 |
+
+![EBITDA illustrative example](assets/Illustrative%20examples%20-%20EBITDA.png)
 
 ---
 
