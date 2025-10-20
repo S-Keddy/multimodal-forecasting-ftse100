@@ -66,7 +66,7 @@ The pipeline combines:
 
 ## Dissertation
 The full dissertation (PDF) is available in the [`/reports`](reports/) folder:  
-[A Multimodal Framework for Predicting Surprises in Earnings Metrics of FTSE 100 Companies (Final)](reports/dissertation.pdf)
+[View 'A Multimodal Framework for Predicting Surprises in Earnings Metrics of FTSE 100 Companies' (PDF)](reports/S.Keddy%20-%20A%20Multimodal%20Framework%20for%20Predicting%20Surprises%20in%20Earnings%20Metrics%20of%20FTSE%20100%20Companies-FINAL.pdf)
 
 ---
 
