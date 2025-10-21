@@ -42,6 +42,11 @@ The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic 
 | Bloomberg | Analyst consensus + actual financials |
 | Bank of England / Yahoo Finance | Macro controls – base rate & FTSE 100 volatility |
 
+> **Note:**  
+> This repository does **not** include any raw or proprietary data.  
+> All datasets referenced above were accessed through their respective platforms and remain subject to each source’s **terms of use and copyright policies**.  
+> Users must obtain data directly from these providers if they wish to reproduce the results.
+
 ### **Feature Groups**  
 - **Linguistic / Stylistic:** readability, tone, pronoun framing, complexity  
 - **Sentiment:** FinBERT (finance-domain BERT classifier)  
