@@ -35,18 +35,6 @@ The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic 
 
 ## ⚙️ Methodology  
 
-### **Data Sources**  
-| Source | Description |
-|--------|-------------|
-| MarketScreener | FTSE 100 earnings-call transcripts (2019 – 2024) |
-| Bloomberg | Analyst consensus + actual financials |
-| Bank of England / Yahoo Finance | Macro controls – base rate & FTSE 100 volatility |
-
-> **Note:**  
-> Raw data is not included in this repository.  
-> All sources listed above retain their own licensing and access terms.
-
-
 ### **Feature Groups**  
 - **Linguistic / Stylistic:** readability, tone, pronoun framing, complexity  
 - **Sentiment:** FinBERT (finance-domain BERT classifier)  
@@ -137,4 +125,3 @@ You are free to use, modify, and distribute the code in compliance with this lic
 No warranty is provided — see the LICENSE file for details.
 
 This repository does **not** include any raw or proprietary financial data.  
-All referenced data sources (e.g., MarketScreener, Bloomberg, Bank of England, Yahoo Finance) remain subject to their respective copyright and terms of use.
