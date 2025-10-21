@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)  
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep_Learning-red.svg)](https://pytorch.org/)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![MSc Distinction](https://img.shields.io/badge/Academic_Award-MSc_Distinction_90.5%25-brightgreen.svg)](#)
 
 > **Stephanie Keddy — MSc Data Science & Artificial Intelligence, Queen Mary University of London**  
