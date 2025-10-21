@@ -124,4 +124,7 @@ This repository’s source code is released under the [Apache License 2.0](LICEN
 You are free to use, modify, and distribute the code in compliance with this license.  
 No warranty is provided — see the LICENSE file for details.
 
-This repository does **not** include any raw or proprietary financial data.  
+> **Data availability:**  
+> This repository does **not** include any proprietary or licensed financial data.  
+> All analyses were conducted using data accessed under academic research conditions, which are **not redistributed here**.  
+> Users seeking to reproduce results should obtain equivalent public or licensed datasets independently.
