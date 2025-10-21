@@ -77,9 +77,15 @@ The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic 
 - **Both linguistic and consensus-dynamics features** provide systematic out-of-sample gains over the consensus baseline on FY2024 results, indicating complementary predictive value.  
 - **Language-only models** (lexicon, FinBERT sentiment, FinLLaMA embeddings) often outperform structured inputs, achieving the largest MAE reduction for **EBIT (−24.0%)** and reliable gains for **Revenue**.  
 - **Hybrid configurations** enhance robustness and case-level dominance (higher Win%), particularly for **EBITDA (−9.55% MAE)**, confirming that language and revision dynamics capture distinct, reinforcing information.  
-- **Compact MLP architectures** generalize better and reduce overfitting, while **adaptive blending** stabilizes deeper residual networks and improves Win% even when MAE gains are modest.  
+- **Compact MLP architectures** generalize better and reduce overfitting, while **adaptive blending** stabilises deeper residual networks and improves Win% even when MAE gains are modest.  
 - The framework establishes a **reproducible, time-aware approach** linking evolving analyst consensus with real corporate language, creating a scalable foundation for multimodal financial NLP and horizon-aware forecasting. 
 
+---
+
+### Notebooks
+- [`EBITDA_model_training_evaluation.ipynb`](notebooks/EBITDA_model_training_evaluation.ipynb) — notebook covering model training, evaluation, and final testing for the *EBITDA* metric.  
+  *Equivalent notebooks were developed for Revenue, EBIT, and Net Income during the MSc project; this version is representative of the full modelling approach.*
+  
 ---
 
 ## 🧰 Tech Stack  
