@@ -43,9 +43,9 @@ The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic 
 | Bank of England / Yahoo Finance | Macro controls – base rate & FTSE 100 volatility |
 
 > **Note:**  
-> This repository does **not** include any raw or proprietary data.  
-> All datasets referenced above were accessed through their respective platforms and remain subject to each source’s **terms of use and copyright policies**.  
-> Users must obtain data directly from these providers if they wish to reproduce the results.
+> Raw data is not included in this repository.  
+> All sources listed above retain their own licensing and access terms.
+
 
 ### **Feature Groups**  
 - **Linguistic / Stylistic:** readability, tone, pronoun framing, complexity  
@@ -127,3 +127,11 @@ If referencing this work:
   school={Queen Mary University of London},
   year={2025}
 }
+
+## 📜 License
+This repository’s source code is released under the [Apache License 2.0](LICENSE).  
+You are free to use, modify, and distribute the code in compliance with this license.  
+No warranty is provided — see the LICENSE file for details.
+
+This repository does **not** include any raw or proprietary financial data.  
+All referenced data sources (e.g., MarketScreener, Bloomberg, Bank of England, Yahoo Finance) remain subject to their respective copyright and terms of use.
