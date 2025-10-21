@@ -127,6 +127,9 @@ If referencing this work:
   school={Queen Mary University of London},
   year={2025}
 }
+```
+
+---
 
 ## 📜 License
 This repository’s source code is released under the [Apache License 2.0](LICENSE).  
