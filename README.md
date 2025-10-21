@@ -1,72 +1,102 @@
-# Multimodal Forecasting Framework for Predicting Earnings Surprises
-**Grade:** 90.5 (Distinction)  
-**Degree:** MSc Data Science & Artificial Intelligence – Queen Mary University of London  
-**Author:** Stephanie Keddy  
-**Supervisor:** Dr. William Marsh  
-**Year:** 2025  
+# A Multimodal Framework for Predicting Earnings Surprises in FTSE 100 Companies  
+
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)  
+[![PyTorch](https://img.shields.io/badge/PyTorch-Deep_Learning-red.svg)](https://pytorch.org/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
+[![MSc Distinction](https://img.shields.io/badge/Academic_Award-MSc_Distinction_90.5%25-brightgreen.svg)](#)
+
+> **Stephanie Keddy — MSc Data Science & Artificial Intelligence, Queen Mary University of London**  
+> *Supervised by Dr William Marsh*  
 
 ---
 
-## Overview
-This project introduces a **multimodal deep learning framework** for predicting **earnings surprises** in FTSE 100 companies.  
-It integrates **financial language from earnings call transcripts** with **analyst consensus revision dynamics** to enhance forecasting of key performance metrics — *Revenue, EBITDA, EBIT, and Net Income.*
+## 🧭 Overview  
+
+Markets react sharply when companies deliver **earnings surprises** — deviations between reported and expected results.  
+This project develops a **multimodal deep-learning framework** that anticipates these surprises *before disclosure*, by fusing:
+
+- **Financial language** from *earnings-call transcripts*  
+- **Quantitative consensus-revision dynamics** from *analyst forecast data*
+
+> Achieved up to **24 % lower MAE** versus analyst baselines across FTSE 100 earnings forecasts by integrating **LLM-based financial NLP** with quantitative analyst dynamics.
+
+The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic **rolling-origin** setup to emulate pre-announcement prediction.
 
 ---
 
-## Abstract
-When year-end earnings results deviate from consensus forecasts, markets react.  
-This study predicts the **magnitude of those surprises** using both textual and quantitative data, recalibrating forecasts by adding predicted surprises to existing analyst consensus values.  
-A **rolling-origin design** ensures temporal realism and prevents look-ahead bias.  
-Models were trained on FY2019–2023 and tested out-of-sample on FY2024.
+## 🎯 Objectives  
 
-**Results**
-- Language-only model reduced mean absolute error (MAE) by **24.0%** for EBIT vs. baseline.  
-- Hybrid (language + consensus dynamics) models achieved best overall reliability, improving EBITDA forecasts by **9.6%** and EBIT by **19.1%**.  
-- All improvements for language and hybrid models across all forecast metrics were **statistically significant** (Diebold–Mariano test, *p* < 0.05).
+1. Predict continuous earnings-surprise magnitudes across multiple financial metrics.  
+2. Integrate unstructured (language) and structured (consensus) data within one predictive framework.  
+3. Recalibrate analyst forecasts to improve ex-ante accuracy.  
+4. Evaluate reliability across post-disclosure horizons (+14 / +30 / +60 / +90 days).  
 
 ---
 
-## Framework
-The pipeline combines:
-- **Linguistic features** - structural, linguistic and lexicon-based features (Loughran-McDonald + own derived lexicons) 
-- **FinBERT** – finance-specific sentiment analysis  
-- **FinLLaMA** – financial-domain transformer embeddings (8k-token context)  
-- **Consensus revision dynamics** – volatility, trend, and timing of analyst estimate changes  
-- **Monte Carlo dropout ensembles** for uncertainty-aware forecasts  
+## ⚙️ Methodology  
 
-**Workflow**
-1. Parse HTML transcripts → structured tables (BeautifulSoup)  
-2. Extract features → linguistic, sentiment, semantic embeddings  
-3. Merge with consensus estimates and macroeconomic controls  
-4. Train multimodal MLP ensemble models (PyTorch)  
-5. Evaluate out-of-sample (FY2024)
+### **Data Sources**  
+| Source | Description |
+|--------|-------------|
+| MarketScreener | FTSE 100 earnings-call transcripts (2019 – 2024) |
+| Bloomberg | Analyst consensus + actual financials |
+| Bank of England / Yahoo Finance | Macro controls – base rate & FTSE 100 volatility |
+
+### **Feature Groups**  
+- **Linguistic / Stylistic:** readability, tone, pronoun framing, complexity  
+- **Sentiment:** FinBERT (finance-domain BERT classifier)  
+- **Semantic Embeddings:** FinLLaMA (LLaMA-3-based 8k-token LLM)  
+- **Consensus Dynamics:** revision volatility, timing, cross-metric trends  
+- **Macroeconomic Controls:** interest rate & market volatility  
+
+### **Model Architecture**  
+- **Deep Ensemble MLPs (PyTorch)** — residual & compact variants  
+- **Reference Models:** XGBoost · LightGBM (used to benchmark expected model performance during experimentation)  
+- **Evaluation Baseline:** Unadjusted analyst consensus forecasts  
+- **Techniques:** Monte Carlo Dropout · Adaptive Blending · One-Cycle LR · Variance-Inflation Screening  
 
 ---
 
-## Tech Stack
-- **Language Processing:** FinBERT, FinLLaMA, spaCy, Loughran-McDonald Lexicons + own derived lexicons  
-- **ML Framework:** PyTorch, Scikit-learn  
-- **Data Handling:** Pandas, NumPy  
-- **Visualization:** Matplotlib, Seaborn  
+## 📈 Key Results  
 
----
-
-## Key Results
 | Metric | Best Model | Δ MAE vs Baseline | Win % | DM *p*-value |
-|--------|-------------|-------------------|--------|---------------|
+|--------|-------------|------------------|--------|---------------|
 | Revenue | Language-only | −0.16% | 54.3% | 0.0000 |
 | EBITDA | Hybrid | **−9.55%** | 56.0% | 0.0011 |
-| EBIT | Language-only | **−24.0%** | 56.0% | 0.0000 |
-| EBIT | Hybrid | **−19.1%** | **62.9%** | 0.0000 |
-| Net Income | Hybrid | −3.17% | 66.0% | 0.0000 |
+| EBIT | Language-only<br>Hybrid | **−24.0%**<br>**−19.1%** | 56.0%<br>**62.9%** | 0.0000 <br>0.0000 |
+| Net Income | Hybrid | −3.17% | **66.0%** | 0.0000 |
 
-![EBITDA illustrative example](assets/Illustrative%20examples%20-%20EBITDA.png)
+
+📊 _Illustrative example (EBITDA prediction for CCEP):_  
+![EBITDA Example](assets/Illustrative%20examples%20-%20EBITDA.png)
+
+---
+
+## 💡 Insights  
+
+- **Both linguistic and consensus-dynamics features** provide systematic out-of-sample gains over the consensus baseline on FY2024 results, indicating complementary predictive value.  
+- **Language-only models** (lexicon, FinBERT sentiment, FinLLaMA embeddings) often outperform structured inputs, achieving the largest MAE reduction for **EBIT (−24.0%)** and reliable gains for **Revenue**.  
+- **Hybrid configurations** enhance robustness and case-level dominance (higher Win%), particularly for **EBITDA (−9.55% MAE)**, confirming that language and revision dynamics capture distinct, reinforcing information.  
+- **Compact MLP architectures** generalize better and reduce overfitting, while **adaptive blending** stabilizes deeper residual networks and improves Win% even when MAE gains are modest.  
+- The framework establishes a **reproducible, time-aware approach** linking evolving analyst consensus with real corporate language, creating a scalable foundation for multimodal financial NLP and horizon-aware forecasting. 
+
+---
+
+## 🧰 Tech Stack  
+
+| Category | Tools |
+|-----------|-------|
+| **Language Processing** | Python 3.11 · BeautifulSoup 4 · spaCy 3.8 · textstat |
+| **Financial NLP** | FinBERT · FinLLaMA |
+| **Machine Learning** | PyTorch · scikit-learn · XGBoost · LightGBM |
+| **Data & Visualisation** | pandas · NumPy · matplotlib · seaborn |
+| **Statistical Testing** | Diebold–Mariano (Newey–West SE) |
 
 ---
 
 ## Dissertation
 The full dissertation (PDF) is available in the [`/reports`](reports/) folder:  
-View --> [A Multimodal Framework for Predicting Surprises in Earnings Metrics of FTSE 100 Companies (PDF)](reports/S.Keddy%20-%20A%20Multimodal%20Framework%20for%20Predicting%20Surprises%20in%20Earnings%20Metrics%20of%20FTSE%20100%20Companies-FINAL.pdf)
+View --> [A Multimodal Framework for Predicting Surprises in Earnings Metrics of FTSE 100 Companies (PDF)](reports/S.Keddy%20-%20A%20Multimodal%20Framework%20for%20Predicting%20Surprises%20in%20Earnings%20Metrics%20of%20FTSE%20100%20Companies-UPLOAD.pdf)
 
 ---
 
