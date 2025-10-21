@@ -86,7 +86,7 @@ The model forecasts **Revenue, EBITDA, EBIT, and Net Income** using a realistic 
 | Category | Tools |
 |-----------|-------|
 | **Language Processing** | Python 3.11 · BeautifulSoup 4 · spaCy 3.8 · textstat |
-| **Financial NLP** | FinBERT · FinLLaMA |
+| **Financial NLP** | FinBERT · FinLLaMA (Hugging Face)|
 | **Machine Learning** | PyTorch · scikit-learn · XGBoost · LightGBM |
 | **Data & Visualisation** | pandas · NumPy · matplotlib · seaborn |
 | **Statistical Testing** | Diebold–Mariano (Newey–West SE) |
